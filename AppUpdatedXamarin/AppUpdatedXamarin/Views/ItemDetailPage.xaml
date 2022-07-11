@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions" 
+             x:Class="AppUpdatedXamarin.Views.ItemDetailPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <Grid BackgroundColor="#94c4c6" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="400" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <CarouselView x:Name="carouselViewPhoto" BackgroundColor="White">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="10">
+                            <Image Source="{Binding .}"/>
+                        </ContentView>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Frame Grid.Row="1" Padding="0"  VerticalOptions="Center" Margin="0,10,0,0" >
+                <Label Text="{Binding NameProduct}" FontAttributes="Bold" FontSize="Large"  HorizontalTextAlignment="Center" Padding="10" />
+            </Frame>
+            <Frame Grid.Row="2" Padding="0" VerticalOptions="Center" Margin="0,10,0,0" >
+                <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" Padding="10" />
+            </Frame>
+            <Frame Grid.Row="3" Padding="0" VerticalOptions="Center" Margin="0,10,0,0" >
+                <StackLayout>
+                    <Label Text="Размеры:" FontSize="Medium" Padding="10,10,10,0" />
+                    <Label Text="{Binding Sizes}"  FontSize="Medium" HorizontalTextAlignment="Center" Padding="10,0,10,20" FontAttributes="Italic" />
+                </StackLayout>
+                
+            </Frame>
+            <Frame Grid.Row="4" Padding="0" VerticalOptions="Center" Margin="0,10,0,0" >
+                <StackLayout>
+                    <Label Text="Описание:" FontSize="Medium" Padding="10,10,10,0" />
+                    <Label Text="{Binding Description}" FontSize="Medium" Padding="10,0,10,20" LineBreakMode="WordWrap" />
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="5" Padding="0" VerticalOptions="Center" Margin="0,10,0,0" >
+                <StackLayout>
+                    <Label Text="Адрес магазина:" FontSize="Medium" Padding="10,10,10,0" />
+                    <Label Text="{Binding AddressMagazin}" FontSize="Medium" Padding="10,0,10,20" LineBreakMode="WordWrap" />
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Row="6" Padding="0" Margin="0,10,0,0" >
+                <StackLayout>
+                    <Label Text="Связь с магазином:" FontSize="Medium" Padding="10,10,10,0" />
+                    <Frame Margin="10" Padding="0">
+                        <Button VerticalOptions="Center" Text="{Binding Feedback}" Command="{Binding FeedbackCommand}" BackgroundColor="#f5a3a7" />
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <Frame IsVisible="{Binding IsCanEdit}" Grid.Row="7" Margin="10" Padding="0" >
+                <Button IsVisible="{Binding IsCanEdit}" BackgroundColor="#f5a3a7"  VerticalOptions="Center" Text="Редактировать" Command="{Binding RedactCommand}" />
+            </Frame>
+            <Frame IsVisible="{Binding IsCanEdit}" Grid.Row="8" Margin="10" Padding="0" >
+                <Button BackgroundColor="#f5a3a7" IsVisible="{Binding IsCanEdit}"  VerticalOptions="Center" Text="Удалить" Command="{Binding DeleteCommand}" />
+            </Frame>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

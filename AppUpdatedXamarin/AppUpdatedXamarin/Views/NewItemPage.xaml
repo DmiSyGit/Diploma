@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppUpdatedXamarin.Views.NewItemPage"
+             xmlns:model="clr-namespace:AppUpdatedXamarin.Models"
+             xmlns:local="clr-namespace:AppUpdatedXamarin.ViewModels"  
+             
+             Title="Добавление товара">
+    <!--Shell.PresentationMode="ModalAnimated"-->
+    
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="220"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <CollectionView x:Name="imagesCollectionView"
+                         ItemsSource="{Binding Images}"
+                         SelectionMode="Multiple"
+                         SelectionChanged="ImagesCollectionView_SelectionChanged" 
+                         BackgroundColor="#7894c4c6" Margin="10">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ImageItem">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="200"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Margin="10" BackgroundColor="#7894c4c6" Source="{Binding ImagePath}" Aspect="AspectFill"></Image>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Grid.Row="1" Padding="10,0,10,10" VerticalOptions="Center">
+                <Button x:Name="AddMainImageBtn" Text="Выбрать главное изображение" Clicked="OnPickPhotoButtonClicked" ></Button>
+                <Button x:Name="AddImageBtn" Text="Выбрать изображение" Clicked="OnPickPhotoButtonClicked"></Button>
+                <Button x:Name="DeleteImageBtn" IsEnabled="False" Text="Удалить выбранные изображения" Clicked="DeleteButton_Clicked" ></Button>
+
+                <Label Text="Название" FontSize="Medium" />
+                <Entry Text="{Binding NameProduct, Mode=TwoWay}" FontSize="Medium" BackgroundColor="#7894c4c6"/>
+
+                <Label Text="Описание" FontSize="Medium" />
+                <Editor Text="{Binding DescriptionProduct, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" BackgroundColor="#7894c4c6"/>
+
+                <Label Text="Цена" FontSize="Medium" />
+                <Entry Text="{Binding Price, Mode=TwoWay}" FontSize="Medium" BackgroundColor="#7894c4c6"/>
+
+                <Label Text="Размеры" FontSize="Medium" />
+                <Entry Text="{Binding Sizes, Mode=TwoWay}" FontSize="Medium" BackgroundColor="#7894c4c6"/>
+
+                <Label Text="Категория" FontSize="Medium" />
+                <Picker x:Name="CategoryPicker" ItemsSource="{Binding CategoryList}"
+                    HorizontalTextAlignment="Center" BackgroundColor="#7894c4c6" 
+                    TextColor="White" Margin="0,0,0,10"
+                        SelectedIndex="{Binding CategoryId}">
+                </Picker>
+ 
+
+                <Button  Text="Сохранить" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+
+            </StackLayout>
+
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

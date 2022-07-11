@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppUpdatedXamarin.Views.ItemsPage"
+             xmlns:local="clr-namespace:AppUpdatedXamarin.ViewModels"  
+             xmlns:model="clr-namespace:AppUpdatedXamarin.Models" 
+             x:Name="BrowseItemsPage">
+    <Shell.SearchHandler>
+        <model:ProductSearchHandler x:Name="ProdSearchHandler"
+                                      Placeholder="Введите ваш запрос"
+                                      ShowsResults="true"
+                                      DisplayMemberName="Name"/>
+    </Shell.SearchHandler>
+
+    <StackLayout>
+        <Frame HasShadow="False" Margin="0" Padding="0">
+            <Picker x:Name="FilterPickerItems" ItemsSource="{Binding FilterList}"
+                    HorizontalTextAlignment="Center" Background="#94c4c6" 
+                    TextColor="White" SelectedIndexChanged="FilterPickerItems_SelectedIndexChanged">
+            </Picker>
+        </Frame>
+        <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                ItemsLayout="VerticalGrid, 2"
+                SelectionMode="None"
+                RemainingItemsThreshold="0"
+                RemainingItemsThresholdReachedCommand="{Binding AdditionalItemsLoad}" >
+            <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Item">
+                        <ContentView Padding="5">
+                            <Frame CornerRadius="10" Margin="0" Padding="0" >
+                                <Grid BackgroundColor="#94c4c6" Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="150" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding IdImageItem}" HorizontalOptions="Fill"/>
+
+                                    <Label Grid.Row="1" 
+                                            Text="{Binding Name}" 
+                                            LineBreakMode="NoWrap" 
+                                           TextColor="White"
+                                            Style="{DynamicResource ListItemTextStyle}" 
+                                            FontSize="16" />
+                                    <Label Grid.Row="2" 
+                                           Text="{Binding Description}" 
+                                           TextColor="White"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Frame Grid.Row="3" CornerRadius="30" Margin="0" Padding="0" BackgroundColor="#f5a3a7" >
+                                        <Label
+                                            Text="{Binding Price}" 
+                                            LineBreakMode="NoWrap" 
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            TextColor="White"
+                                            HorizontalTextAlignment="Center"
+                                            FontSize="15" />
+                                    </Frame>
+
+
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            NumberOfTapsRequired="1"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                            CommandParameter="{Binding .}"> 
+                                        </TapGestureRecognizer>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
+
+                    </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+    </StackLayout>
+</ContentPage>

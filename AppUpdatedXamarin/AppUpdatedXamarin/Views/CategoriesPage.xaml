@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppUpdatedXamarin.Views.AboutPage"
+             xmlns:vm="clr-namespace:AppUpdatedXamarin.ViewModels"
+             Title="Категории" >
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="#94c4c6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Label Text="Одежда" VerticalOptions="Center" FontAttributes="Bold" FontSize="Large"
+                   BackgroundColor="White" Padding="10"></Label>
+                <Button Grid.Row="1" BorderColor="White" BorderWidth="5" Text="Брюки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="2" BorderColor="White" BorderWidth="5" Text="Рубашки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="3" BorderColor="White" BorderWidth="5" Text="Верхняя одежда" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="4" BorderColor="White" BorderWidth="5" Text="Джинсы" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="5" BorderColor="White" BorderWidth="5" Text="Костюмы" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="6" BorderColor="White" BorderWidth="5" Text="Пиджаки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="7" BorderColor="White" BorderWidth="5" Text="Толстовки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="8" BorderColor="White" BorderWidth="5" Text="Футболки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="9" BorderColor="White" BorderWidth="5" Text="Платья" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="10" BorderColor="White" BorderWidth="5" Text="Блузки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="11" BorderColor="White" BorderWidth="5" Text="Туники" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="12" BorderColor="White" BorderWidth="5" Text="Юбки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="13" BorderColor="White" BorderWidth="5" Text="Шорты" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Label Grid.Row="14" Text="Обувь" VerticalOptions="Center" FontAttributes="Bold" FontSize="Large"
+                   BackgroundColor="White" Padding="10"></Label>
+                <Button Grid.Row="15" BorderColor="White" BorderWidth="5" Text="Кросовки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="16" BorderColor="White" BorderWidth="5" Text="Ботинки" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="17" BorderColor="White" BorderWidth="5" Text="Детская обувь" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+                <Button Grid.Row="18" BorderColor="White" BorderWidth="5" Text="Другое" VerticalOptions="Center"  FontSize="Large"
+                   BackgroundColor="#94c4c6" Padding="10,0" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

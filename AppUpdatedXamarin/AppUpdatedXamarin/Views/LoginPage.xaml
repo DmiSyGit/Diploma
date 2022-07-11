@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppUpdatedXamarin.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Frame IsVisible="{Binding IsNeedHelp}" Padding="0" BackgroundColor="#94c4c6" VerticalOptions="Center" Margin="0,10,0,0" >
+                <StackLayout>
+                    <Label Text="Этот раздел предназначен для сотрудников магазина." TextColor="White" FontAttributes="None" FontSize="Medium"  HorizontalTextAlignment="Start" Padding="5" />
+                    <Label Text="Для доступа требуется ввести в поле ввода ключ-пароль. " TextColor="White" FontAttributes="None" FontSize="Medium"  HorizontalTextAlignment="Start" Padding="5,0,5,5" />
+                    <Label Text="Вы можете связаться с нами по ссылке ниже, если желаете сотрудничать с нами." TextColor="White" FontAttributes="None" FontSize="Medium"  HorizontalTextAlignment="Start" Padding="5,0,5,5" />
+                </StackLayout>
+            </Frame>
+            <Frame Padding="0" BackgroundColor="#94c4c6" VerticalOptions="Center" Margin="0,10,0,0" >
+                <Button Text="vk.com/m_a__z__a_y" BackgroundColor="#f5a3a7" FontAttributes="None" FontSize="Medium" Padding="5" Command="{Binding GoСontactCommand}" />
+            </Frame>
+            <Frame Padding="0" BackgroundColor="#94c4c6" VerticalOptions="Center" Margin="0,10,0,0" >
+                <Label Text="Ключ для входа:" TextColor="White" FontAttributes="None" FontSize="Medium"  HorizontalTextAlignment="Start" Padding="10" />
+            </Frame>
+            <Entry Text="{Binding Password, Mode=TwoWay}" Background="#f5a3a7" TextColor="White" FontSize="Medium" />
+            <Button IsVisible="{Binding IsNeedHelp}" VerticalOptions="Center" Text="Войти" Command="{Binding LoginCommand}"/>
+            <Button IsEnabled="{Binding IsLogged}" IsVisible="{Binding IsLogged}" VerticalOptions="Center" Text="Выйти" Command="{Binding LogoutCommand}" />
+            <Button IsEnabled="{Binding IsLogged}" IsVisible="{Binding IsLogged}" VerticalOptions="Center" Text="Добавить товар" Command="{Binding AddNewItemCommand}" />
+            <Button IsEnabled="{Binding IsLogged}" IsVisible="{Binding IsLogged}" VerticalOptions="Center" Text="Редактировать товары" Command="{Binding RedactItemsCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
